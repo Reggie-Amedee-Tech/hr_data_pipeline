@@ -1,4 +1,5 @@
 import math
+import os
 
 # with open("./data/phase0.txt", "r") as file:
 #     phase_zero_hr = []
@@ -19,6 +20,10 @@ import math
 #     phase_three_hr = []
 #     for line in file:
 #         phase_three_hr.append(line.replace('\n', ""))
+
+list_of_phases = os.listdir("../data")
+
+# print(list_of_phases)
     
 
 
@@ -94,9 +99,16 @@ def run(file: str):
 
 
 
-if __name__ == "__main__":
-    run("data/phase0.txt")
-    run("data/phase1.txt")
-    run("data/phase2.txt")
-    run("data/phase3.txt")
-    run("data/phase4.txt")
+# if __name__ == "__main__":
+#     run("data/phase0.txt")
+#     run("data/phase1.txt")
+#     run("data/phase2.txt")
+#     run("data/phase3.txt")
+#     run("data/phase4.txt")
+
+for phase in list_of_phases:
+    run(f'./data/{phase}')
+
+
+
+# Loop through list
