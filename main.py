@@ -21,11 +21,7 @@ import os
 #     for line in file:
 #         phase_three_hr.append(line.replace('\n', ""))
 
-list_of_phases = os.listdir("../data")
-
-# print(list_of_phases)
-    
-
+list_of_phases = os.listdir("./data/")
 
 def clean_heartrate_data(data: list) -> tuple:
     poor_data_quality_capture = 0
@@ -107,8 +103,7 @@ def run(file: str):
 #     run("data/phase4.txt")
 
 for phase in list_of_phases:
+    print(phase)
     run(f'./data/{phase}')
 
 
-
-# Loop through list
