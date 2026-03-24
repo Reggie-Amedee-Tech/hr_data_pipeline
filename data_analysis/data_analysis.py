@@ -1,4 +1,5 @@
 import math
+import numpy as np
 
 def average(data: list) -> float:
     sum_of_hr = sum(data["data"])
@@ -21,3 +22,7 @@ def range(data: list) -> float:
     sorted_hrs = sorted(data["data"])
     range = sorted_hrs[-1] - sorted_hrs[0]
     return range
+
+def variance(data: list) -> float:
+    var = np.variance(data)
+    return var
