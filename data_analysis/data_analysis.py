@@ -24,5 +24,5 @@ def range(data: list) -> float:
     return range
 
 def variance(data: list) -> float:
-    var = np.variance(data)
+    var = np.var(data["data"])
     return var
