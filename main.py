@@ -13,19 +13,22 @@ def run(file: str):
     with open(file, "r") as file:
         for line in file:
             data.append(line.replace('\n', ""))
+    
+    data_payload = {"cleaned_data": data, "filename": filename}
 
-    cleaned_list = data_cleaning.clean_heartrate_data(data)
+    cleaned_list = data_cleaning.clean_heartrate_data(data_payload)
 
-    avg = data_analysis.average(cleaned_list)
-    med = data_analysis.median(cleaned_list)
-    ran = data_analysis.range(cleaned_list)
-    var = data_analysis.variance(cleaned_list)
+    list_of_hrs = cleaned_list["data"]["cleaned_data"]
+
+
+    avg = data_analysis.average(list_of_hrs)
+    med = data_analysis.median(list_of_hrs)
+    ran = data_analysis.range(list_of_hrs)
+    var = data_analysis.variance(list_of_hrs)
     
     data_visualizations.plotLineChart(cleaned_list)
-    plt.savefig(f'./images/{filename}.jpg', dpi=300, bbox_inches="tight")
-    plt.close()
 
-    return f'{file} metrics: \n Average: {avg} \n Median: {med} \n Range: {ran} \n Amount of poor data quality captured: {cleaned_list["poor_data_quality_capture"]} \n Variance: {var}'
+    return f'{file} metrics: \n Average: {avg} \n Median: {med} \n Range: {ran} \n Amount of poor data quality captured: {cleaned_list["poor_data_quality_capture"]}  \n Variance: {var}'
 
 
 for phase in list_of_phases:
