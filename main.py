@@ -6,7 +6,7 @@ from data_visualizations import data_visualizations
 
 list_of_phases = os.listdir("./data/")
 
-def run(file: str):
+def run(file: str) -> None:
     filename = file[7:]
 
     data = []
@@ -25,10 +25,11 @@ def run(file: str):
     med = data_analysis.median(list_of_hrs)
     ran = data_analysis.range(list_of_hrs)
     var = data_analysis.variance(list_of_hrs)
+    std = data_analysis.standard_deviation(list_of_hrs)
     
     data_visualizations.plotLineChart(cleaned_list)
 
-    return f'{file} metrics: \n Average: {avg} \n Median: {med} \n Range: {ran} \n Amount of poor data quality captured: {cleaned_list["poor_data_quality_capture"]}  \n Variance: {var}'
+    print(f'{file} metrics: \n Average: {avg} \n Median: {med} \n Range: {ran} \n Amount of poor data quality captured: {cleaned_list["poor_data_quality_capture"]}  \n Variance: {var} \n Standard Deviation {std}')
 
 
 for phase in list_of_phases:

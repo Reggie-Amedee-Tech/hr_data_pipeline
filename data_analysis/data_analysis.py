@@ -26,3 +26,7 @@ def range(data: list) -> float:
 def variance(data: list) -> float:
     var = np.var(data)
     return var
+
+def standard_deviation(data: list) -> float:
+    std = np.std(data)
+    return std
